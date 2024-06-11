@@ -1,16 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
+import { Link } from "expo-router";
 
 const ExerciseListItem = ({ item }) => {
   return (
-    <View style={styles.listContainer}>
-      <View>
+    <Link href={`/${item.name}`} asChild>
+      <Pressable style={styles.listContainer}>
         <Text style={styles.itemName}>{item.name}</Text>
         <Text style={styles.itemMuscle}>
           {item.muscle.toUpperCase()} | {item.type.toUpperCase()}
         </Text>
         {/* <Text style={styles.itemInstructions}>{item.instructions}</Text> */}
-      </View>
-    </View>
+    </Pressable>
+    </Link>
   );
 };
 

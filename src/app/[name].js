@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { useLocalSearchParams } from 'expo-router';
 
 const ExerciseDetailsScreen = () => {
+  const params = useLocalSearchParams();
   return (
     <View>
-      <Text>Exercise Details </Text>
+      <Text>Exercise Details: { params.name } </Text>
     </View>
   )
 }
