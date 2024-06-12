@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, Stack } from "expo-router";
 import exercises from "../../workout-data/data/exercises.json";
 
 const ExerciseDetailsScreen = () => {
@@ -13,6 +13,8 @@ const ExerciseDetailsScreen = () => {
 
   return (
     <View style={styles.container}>
+    <Stack.Screen options={{ title: exercise.name }} />
+    
       <Text>{exercise.name} </Text>
       <Text style={exercise.itemName}>{exercise.name}</Text>
         <Text style={exercise.itemMuscle}>
