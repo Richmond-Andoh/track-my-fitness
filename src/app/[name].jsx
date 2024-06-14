@@ -13,13 +13,14 @@ const ExerciseDetailsScreen = () => {
 
   return (
     <View style={styles.container}>
-    <Stack.Screen options={{ title: exercise.name }} />
+      <Stack.Screen options={{ title: exercise.name }} />
     
-      <Text>{exercise.name} </Text>
-      <Text style={exercise.itemName}>{exercise.name}</Text>
-        <Text style={exercise.itemMuscle}>
+      <Text style={styles.itemName}>{exercise.name}</Text>
+        <Text style={styles.itemMuscle}>
           {exercise.muscle.toUpperCase()} | {exercise.type.toUpperCase()}
         </Text>
+        <Text>{exercise.equipment}</Text>
+        <Text>{exercise.instructions}</Text>
     </View>
   );
 };

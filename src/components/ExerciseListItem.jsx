@@ -10,7 +10,7 @@ const ExerciseListItem = ({ item }) => {
           {item.muscle.toUpperCase()} | {item.type.toUpperCase()}
         </Text>
         {/* <Text style={styles.itemInstructions}>{item.instructions}</Text> */}
-    </Pressable>
+      </Pressable>
     </Link>
   );
 };
