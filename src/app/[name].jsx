@@ -6,7 +6,7 @@ import { useState } from "react";
 const ExerciseDetailsScreen = () => {
   const params = useLocalSearchParams();
 
-  const [isInstructionsTruncated, setInstructionsTruncated] = useState(false);
+  const [isInstructionsExpanded, setInstructionsExpanded] = useState(false);
 
   const exercise = exercises.find((item) => item.name === params.name);
 
@@ -26,9 +26,9 @@ const ExerciseDetailsScreen = () => {
         <Text>{exercise.equipment}</Text>
       </View>
       <View style={styles.panel}>
-        <Text numberOfLines={isInstructionsTruncated ? 0 : 3}>{exercise.instructions}</Text>
-        <Text onPress={() => setInstructionsTruncated(!isInstructionsTruncated)} style={styles.seeMore}>
-          {isInstructionsTruncated ? "See Less" : "See More"}
+        <Text numberOfLines={isInstructionsExpanded ? 0 : 3}>{exercise.instructions}</Text>
+        <Text onPress={() => setInstructionsExpanded(!isInstructionsExpanded)} style={styles.seeMore}>
+          {isInstructionsExpanded ? "See Less" : "See More"}
         </Text>
       </View>
     </ScrollView>
