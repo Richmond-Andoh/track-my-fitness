@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { useLocalSearchParams, Stack } from "expo-router";
 import exercises from "../../workout-data/data/exercises.json";
 
@@ -12,16 +12,21 @@ const ExerciseDetailsScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Stack.Screen options={{ title: exercise.name }} />
-    
-      <Text style={styles.itemName}>{exercise.name}</Text>
+
+      <View style={styles.panel}>
+        <Text style={styles.itemName}>{exercise.name}</Text>
         <Text style={styles.itemMuscle}>
           {exercise.muscle.toUpperCase()} | {exercise.type.toUpperCase()}
         </Text>
         <Text>{exercise.equipment}</Text>
-        <Text>{exercise.instructions}</Text>
-    </View>
+      </View>
+      <View style={styles.panel}>
+        <Text numberOfLines={4}>{exercise.instructions}</Text>
+        <Text style={styles.seeMore}>See More</Text>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -29,7 +34,7 @@ export default ExerciseDetailsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    gap: 10,
     padding: 10,
     // backgroundColor: "white",
     // borderRadius: 10,
@@ -42,6 +47,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
+    
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
 
@@ -57,4 +63,19 @@ const styles = StyleSheet.create({
   itemInstructions: {
     paddingVertical: 3,
   },
+
+  panel: {
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 5
+  },
+
+  seeMore: {
+    alignSelf: "center",
+    fontSize: 16,
+    color: "#337ab7",
+    fontWeight: "bold",
+    padding: 10,
+    cursor: "pointer"
+  }
 });
